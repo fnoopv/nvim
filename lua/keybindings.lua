@@ -44,6 +44,10 @@ map("n", "stv", ":vsp | terminal<CR>", opt)
 --symbols-outline快捷键
 map("n", "so", "<cmd>SymbolsOutline<CR>", opt)
 
+--diffview打开快捷键
+map("n", "df", "<cmd>DiffviewOpen<CR>", opt)
+map("n", "dc", "<cmd>DiffviewClose<CR>", opt)
+
 -- 插件快捷键
 local pluginKeys = {}
 

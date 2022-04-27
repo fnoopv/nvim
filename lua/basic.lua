@@ -81,3 +81,5 @@ vim.o.showmode = false
 vim.opt.clipboard = "unnamedplus"
 -- 自动缩进的策略为 plugin
 vim.o.filetype = "plugin"
+-- 指定python解释器位置
+vim.g.python_path = "/usr/bin/python3"

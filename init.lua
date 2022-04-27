@@ -1,5 +1,5 @@
 --基础设置
-require("base")
+require("basic")
 require("keybindings")
 require("plugins")
 require("colorscheme")
@@ -26,3 +26,7 @@ require("lsp.lightbulb")
 require("lsp.cmp")
 require("lsp.symbols-outline")
 require("lsp.trouble")
+--Dap Debug设置
+require("plugin-config.nvim-dap")
+require("plugin-config.nvim-dap-virtual-text")
+require("plugin-config.nvim-dap-ui")

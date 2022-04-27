@@ -45,8 +45,11 @@ map("n", "stv", ":vsp | terminal<CR>", opt)
 map("n", "so", "<cmd>SymbolsOutline<CR>", opt)
 
 --diffview打开快捷键
-map("n", "df", "<cmd>DiffviewOpen<CR>", opt)
+map("n", "do", "<cmd>DiffviewOpen<CR>", opt)
 map("n", "dc", "<cmd>DiffviewClose<CR>", opt)
+
+--显示或隐藏debug界面
+map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<CR>", opt)
 
 -- 插件快捷键
 local pluginKeys = {}
@@ -234,6 +237,28 @@ pluginKeys.diff = function(cb)
             ["q"] = cb("close")
         }
     }
+end
+
+pluginKeys.setDap = function()
+    -- 打断点
+    map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opt)
+    -- 开启调试或到下一个断点处
+    map("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opt)
+    -- 单步进入执行（会进入函数内部，有回溯阶段）
+    map("n", "<F6>", "<cmd>lua require'dap'.step_into()<CR>", opt)
+    -- 单步跳过执行（不进入函数内部，无回溯阶段）
+    map("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opt)
+    -- 步出当前函数
+    map("n", "<F8>", "<cmd>lua require'dap'.step_out()<CR>", opt)
+    -- 重启调试
+    map("n", "<F9>", "<cmd>lua require'dap'.run_last()<CR>", opt)
+    -- 退出调试（关闭调试，关闭 repl，关闭 ui，清除内联文本）
+    map(
+        "n",
+        "<F10>",
+        "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>",
+        opt
+    )
 end
 
 return pluginKeys

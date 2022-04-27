@@ -70,6 +70,8 @@ return require("packer").startup(
         use "lewis6991/spellsitter.nvim"
         --状态栏显示git分支
         use "lewis6991/gitsigns.nvim"
+        --diff对比
+        use {"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"}
 
         -- LSP
         use({"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"})

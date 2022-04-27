@@ -16,6 +16,7 @@ require("plugin-config.alpha-vim")
 require("plugin-config.indent-blankline")
 require("plugin-config.todo-comments")
 require("plugin-config.spellsitter")
+require("plugin-config.diffview-nvim")
 --LSP设置
 require("lsp.setup")
 require("lsp.ui")

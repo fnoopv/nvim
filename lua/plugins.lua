@@ -80,8 +80,6 @@ return require("packer").startup(
         use "onsails/lspkind-nvim"
         -- lsp进度提示
         use "j-hui/fidget.nvim"
-        -- lsp 获取代码签名
-        use "ray-x/lsp_signature.nvim"
         -- 灯泡提示
         use "kosayoda/nvim-lightbulb"
         --代码大纲

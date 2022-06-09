@@ -146,11 +146,13 @@ pluginKeys.mapLSP = function(_, mapbuf)
     -- 工作区诊断（代替内置 LSP 的窗口，telescope 插件让工作区诊断更方便）
     vim.api.nvim_buf_set_keymap(mapbuf, "n", "go", "<cmd>Telescope diagnostics theme=dropdown<CR>", opt)
     -- 显示代码可用操作（代替内置 LSP 的窗口，telescope 插件让代码行为更方便）
-    vim.api.nvim_buf_set_keymap(mapbuf, "n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=dropdown<CR>", opt)
+    vim.api.nvim_buf_set_keymap(mapbuf, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
     -- 变量重命名（代替内置 LSP 的窗口，Lspsaga 让变量重命名更美观）
     vim.api.nvim_buf_set_keymap(mapbuf, "n", "<leader>cn", "<cmd>Lspsaga rename<CR>", opt)
     -- 查看帮助信息（代替内置 LSP 的窗口，Lspsaga 让查看帮助信息更美观）
     vim.api.nvim_buf_set_keymap(mapbuf, "n", "gh", "<cmd>Lspsaga hover_doc<CR>", opt)
+    -- 显示代码签名, Lspsaga提供
+    vim.api.nvim_buf_set_keymap(mapbuf, "i", "<A-i>", "<cmd>Lspsaga signature_help<CR>", opt)
     -- 跳转到上一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
     vim.api.nvim_buf_set_keymap(mapbuf, "n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
     -- 跳转到下一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）

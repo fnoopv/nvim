@@ -19,7 +19,7 @@ require("diffview").setup {
         win_config = {
             position = "left",
             width = 35,
-            height = 10,
+            height = 10
         },
         listing_style = "tree", -- One of 'list' or 'tree'
         tree_options = {
@@ -32,15 +32,26 @@ require("diffview").setup {
         win_config = {
             position = "bottom",
             width = 35,
-            height = 16,
+            height = 16
         },
         log_options = {
-            max_count = 256, -- Limit the number of commits
-            follow = false, -- Follow renames (only for single file)
-            all = false, -- Include all refs under 'refs/' including HEAD
-            merges = false, -- List only merge commits
-            no_merges = false, -- List no merge commits
-            reverse = false -- List commits in reverse order
+            single_file = {
+                max_count = 256,
+                follow = true,
+                diff_merges = "combined",
+                all = false,
+                merges = false,
+                no_merges = false,
+                reverse = false
+            },
+            multi_file = {
+                max_count = 256,
+                diff_merges = "first-parent",
+                all = false,
+                merges = false,
+                no_merges = false,
+                reverse = false
+            }
         }
     },
     default_args = {

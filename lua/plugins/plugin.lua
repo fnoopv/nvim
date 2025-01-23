@@ -35,12 +35,8 @@ return {
       },
     },
   },
-  -- lazy.nvim
   {
-    "folke/snacks.nvim",
-    ---@type snacks.Config
-    opts = {
-      lazygit = {},
-    },
+    "svampkorg/moody.nvim",
+    event = { "ModeChanged", "BufWinEnter", "WinEnter" },
   },
 }

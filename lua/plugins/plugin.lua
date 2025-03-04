@@ -39,4 +39,9 @@ return {
     "svampkorg/moody.nvim",
     event = { "ModeChanged", "BufWinEnter", "WinEnter" },
   },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {},
+  },
+  { "Bekaboo/deadcolumn.nvim" },
 }

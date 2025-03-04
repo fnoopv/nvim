@@ -7,7 +7,17 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- golang imports organized on save
+-- 设置HOME键行为,第一次点击到当前行第一个字母处，第二次到行首
+local function home()
+  local head = (vim.api.nvim_get_current_line():find("[^%s]") or 1) - 1
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  cursor[2] = cursor[2] == head and 0 or head
+  vim.api.nvim_win_set_cursor(0, cursor)
+end
+vim.keymap.set({ "i", "n" }, "<Home>", home)
+vim.keymap.set("n", "0", home)
+
+-- go保存时自动导入
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()

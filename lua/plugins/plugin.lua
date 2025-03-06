@@ -41,7 +41,9 @@ return {
   },
   {
     "m4xshen/smartcolumn.nvim",
-    opts = {},
+    opts = {
+      colorcolumn = "120",
+    },
   },
   { "Bekaboo/deadcolumn.nvim" },
   {

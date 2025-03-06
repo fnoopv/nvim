@@ -44,4 +44,24 @@ return {
     opts = {},
   },
   { "Bekaboo/deadcolumn.nvim" },
+  {
+    "AckslD/nvim-neoclip.lua",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>sp",
+        function()
+          require("neoclip.fzf")()
+        end,
+        desc = "open clipboard manager",
+      },
+    },
+    dependencies = {
+      { "kkharji/sqlite.lua", module = "sqlite" },
+      { "ibhagwan/fzf-lua" },
+    },
+    config = function()
+      require("neoclip").setup()
+    end,
+  },
 }

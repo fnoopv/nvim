@@ -3,25 +3,26 @@ return {
     "williamboman/mason.nvim",
     opts = { ensure_installed = { "impl", "gomodifytags", "golangci-lint" } },
   },
+  -- yazi文件管理器
   {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
+    dependencies = {
+      "folke/snacks.nvim",
+    },
     keys = {
-      -- 👇 in this section, choose your own keymappings!
       {
         "<leader>yf",
+        mode = { "n", "v" },
         "<cmd>Yazi<cr>",
         desc = "Open yazi at the current file",
       },
       {
-        -- Open in the current working directory
         "<leader>yw",
         "<cmd>Yazi cwd<cr>",
         desc = "Open the file manager in nvim's working directory",
       },
       {
-        -- NOTE: this requires a version of yazi that includes
-        -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
         "<leader>yz",
         "<cmd>Yazi toggle<cr>",
         desc = "Resume the last yazi session",
@@ -35,17 +36,12 @@ return {
       },
     },
   },
+  -- 根据模式改变当前行的颜色
   {
     "svampkorg/moody.nvim",
     event = { "ModeChanged", "BufWinEnter", "WinEnter" },
   },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = "120",
-    },
-  },
-  { "Bekaboo/deadcolumn.nvim" },
+  -- 剪贴板管理
   {
     "AckslD/nvim-neoclip.lua",
     event = "VeryLazy",

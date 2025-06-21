@@ -1,4 +1,5 @@
 return {
+  { "nvim-tree/nvim-web-devicons", opts = {} },
   {
     "williamboman/mason.nvim",
     opts = { ensure_installed = { "impl", "gomodifytags", "golangci-lint" } },
